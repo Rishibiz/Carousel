@@ -1,5 +1,5 @@
 # Ex05 Image Carousel
-## Date:
+## Date: 15:10:2025
 
 ## AIM
 To create a Image Carousel using React 
@@ -39,9 +39,106 @@ Use setInterval to call the nextImage() function at regular intervals.
 Clean up the interval when the component unmounts using clearInterval to prevent memory leaks.
 
 ## PROGRAM
+### App.jsx
+```
+import React, { useState } from 'react';
+import './App.css';
 
+const images = [
+  '/im.jpeg', '/aa.jpeg'
+];
+
+function App() {
+  const [index, setIndex] = useState(0);
+
+  const showPrevious = () => {
+    setIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const showNext = () => {
+    setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  return (
+    <div className="app">
+      <h1 className="title">Ro-Ko Carousel</h1>
+      <div className="carousel">
+        <img src={images[index]} alt="Ro-Ko" className="carousel-image" />
+      </div>
+      <div className="buttons">
+        <button onClick={showPrevious}>Previous</button>
+        <button onClick={showNext}>Next</button>
+      </div>
+      <footer className="footer">A JOSIAH IMMANUEL 212223043003</footer>
+    </div>
+  );
+}
+
+export default App;
+```
+### App.css
+```
+.app {
+  text-align: center;
+  margin-top: 40px;
+  background-color: #f0f4f8;  /* light background color */
+  width: 600px;               /* set fixed width */
+  height: 600px;              /* set fixed height */
+  margin-left: auto;          /* center horizontally */
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  width: 500px;
+  height: auto;
+  margin: 0 auto; /* centers the carousel horizontally */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #aaa;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* centers the image if needed */
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* New footer style */
+.footer {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+}
+```
 
 ## OUTPUT
+<img width="1266" height="646" alt="Screenshot 2025-11-03 102131" src="https://github.com/user-attachments/assets/4f0faa49-810a-4c4c-aa8a-86436684a21e" />
+
+<img width="1264" height="642" alt="Screenshot 2025-11-03 102149" src="https://github.com/user-attachments/assets/dcbbb66b-b36f-423d-a196-28e7e911c891" />
 
 
 ## RESULT
