@@ -142,4 +142,6 @@ button {
 
 
 ## RESULT
-The program for creating Image Carousel using React is executed successfully.
+The program for creating Image Carousel using React is executed successfully...
+
+
